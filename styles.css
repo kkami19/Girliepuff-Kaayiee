@@ -1,0 +1,739 @@
+html{
+    background-image: url('./assests/index.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: none; /* Hide the default cursor */
+}
+/* Top buttons container */
+.top-btns {
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right */
+    gap: 20px; /* Space between buttons */
+    padding: 20px;
+}
+
+/* Button wrapper */
+.btn-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Button styling */
+.btn-container button {
+    width: 70px;
+    height: 70px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    /* Make the button circular */
+    border-radius: 50%;
+    
+    /* Shadow effect */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensures the image stays within the circle */
+}
+
+/* Ensure the image fits perfectly inside the circle */
+.btn-container button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps the image proportionate inside the button */
+    border-radius: 50%;
+}
+
+/* Image styling */
+.btn-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect */
+.btn-container button:hover {
+    transform: scale(1.1);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+/* Click (active) effect */
+.btn-container button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when pressed */
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    bottom: -30px; /* Adjusts tooltip position */
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Show tooltip on hover */
+.btn-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* About Res POPUP */
+/* Dark overlay background */
+.popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens background */
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup window */
+.popup {
+    background: #c7a778;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    position: relative;
+    overflow: auto; /* Ensures that content that overflows the container is scrollable */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#ati-grp{
+    display: flex;
+    flex-direction: row;
+}
+#ATI {
+    margin-left: 30px;
+}
+#ATI h2 {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
+}
+
+/* Close button */
+.close-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute; /* Absolute positioning */
+    top: 15px; /* Position from top */
+    right: 30px; /* Position from right */
+}
+.ATI-contents{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 400px;
+}
+/* Email */
+
+/* Dark overlay background for email popup */
+.popup-bg-email {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens background */
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Email Popup window */
+.popup-email {
+    background: #c7a778;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    position: relative;
+    overflow: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Title section */
+#email-title {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+#email-title h2 {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
+}
+
+/* Close button for email popup */
+.close-btn-email {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute; /* Absolute positioning */
+    top: 15px;
+    right: 30px;
+}
+
+/* Contact form styles */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+}
+
+#contact-form label {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Submit button for contact form */
+#contact-form button {
+    background-color: #34b4ca;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when pressed */
+}
+
+/* Submit button hover effect */
+#contact-form button:hover {
+    background-color: #4278ad;
+}
+
+/* Additional styling to ensure form contents are well-positioned */
+.popup-email form {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Content*/
+/* Dark overlay background */
+.abtme-popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens background */
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup window */
+.popup-about-me {
+    background: #c7a778;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    position: relative;
+    overflow: auto; /* Ensures that content that overflows the container is scrollable */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#abt-me{
+    display: flex;
+    flex-direction: row;
+}
+#ABT {
+    margin-left: 30px;
+}
+#ABT h2 {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
+}
+.ABT-contents{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 400px;
+}
+/* Upper buttons container */
+.upper-content{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 150px;
+}
+
+#about-me {
+    margin-left: 20px
+}
+#hobbies {
+    margin-left: 20px ;
+}
+
+/* Button wrapper */
+.top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Button styling */
+.top button {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    /* Make the button circular */
+    border-radius: 50%;
+    
+    /* Shadow effect */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensures the image stays within the circle */
+
+    /* Pulse effect */
+    animation: pulse 1.5s infinite; /* Adjusts speed and makes it repeat infinitely */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Initial scale */
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.1); /* Slightly larger */
+        box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    }
+    100% {
+        transform: scale(1); /* Back to original size */
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Ensure the image fits perfectly inside the circle */
+.top button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps the image proportionate inside the button */
+    border-radius: 50%;
+}
+
+/* Image styling */
+.top img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect */
+.top button:hover {
+    transform: scale(1.1);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+/* Click (active) effect */
+.top button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when pressed */
+}
+
+/* Tooltip styling Upper Contents*/
+.tooltip-top {
+    position: absolute; 
+    top: -35px; /* Moves tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Show tooltip on hover */
+.top:hover .tooltip-top {
+    opacity: 1;
+    visibility: visible;
+}
+/* Dark overlay background */
+.hobs-popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens background */
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup window */
+.popup-hobbies{
+    background: #c7a778;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    position: relative;
+    overflow: auto; /* Ensures that content that overflows the container is scrollable */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#hobs{
+    display: flex;
+    flex-direction: row;
+}
+#HOBS {
+    margin-left: 30px;
+}
+#HOBS h2 {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
+}
+.HOBS-contents{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 400px;
+}
+/* Lower buttons container */
+/* Dark overlay background */
+.skills-popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens background */
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup window */
+.popup-skl {
+    background: #c7a778;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    position: relative;
+    overflow: auto; /* Ensures that content that overflows the container is scrollable */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#skill{
+    display: flex;
+    flex-direction: row;
+}
+#SKL {
+    margin-left: 30px;
+}
+#SKL h2 {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
+}
+.SKL-contents{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 400px;
+}
+/* Tooltip styling Lower Contents*/
+.tooltip-bot {
+    position: absolute; 
+    top: -35px; /* Moves tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Show tooltip on hover */
+.skl:hover .tooltip-bot {
+    opacity: 1;
+    visibility: visible;
+}
+.lower-content{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 70px;
+}
+
+#skills {
+    margin-left: 20px
+}
+#expsem {
+    margin-left: 20px ;
+}
+
+/* Button wrapper */
+.skl {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Button styling */
+.skl button {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    /* Make the button circular */
+    border-radius: 50%;
+    
+    /* Shadow effect */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensures the image stays within the circle */
+
+    /* Pulse effect */
+    animation: pulse 1.5s infinite; /* Adjusts speed and makes it repeat infinitely */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Initial scale */
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.1); /* Slightly larger */
+        box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    }
+    100% {
+        transform: scale(1); /* Back to original size */
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Ensure the image fits perfectly inside the circle */
+.skl button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps the image proportionate inside the button */
+    border-radius: 50%;
+}
+
+/* Image styling */
+.skl img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect */
+.skl button:hover {
+    transform: scale(1.1);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+/* Click (active) effect */
+.skl button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Smaller shadow when pressed */
+}
+/* Dark overlay background */
+.exp-popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens background */
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup window */
+.popup-exp {
+    background: #c7a778;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    position: relative;
+    overflow: auto; /* Ensures that content that overflows the container is scrollable */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#exp{
+    display: flex;
+    flex-direction: row;
+}
+#EXP {
+    margin-left: 30px;
+}
+#EXP h2 {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow effect */
+}
+.EXP-contents{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 400px;
+}
+/* Wrapper to position the button */
+.character{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.KAYI {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    margin-left: 50px;
+}
+
+/* Button styling - Removes default button styles */
+.KAYI button {
+    width: 250px;
+    height: 250px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Image inside the button */
+.KAYI button img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Hover effect: Change from normal face to happy face */
+.KAYI button:hover img {
+    content: url("assests/happy.png");
+}
+
+/* Tooltip styling */
+.tooltip-khay {
+    position: absolute;  /* Change to absolute positioning */
+    top: -30px;  /* Adjust to position the tooltip above the button */
+    right: 0;  /* Align it to the right of the button */
+    background: #4a362b;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+    text-align: center;
+    max-width: 100%;
+}
+
+/* Show tooltip on hover */
+.KAYI:hover .tooltip-khay {
+    opacity: 1;
+    visibility: visible;
+}
+.sparkle {
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #cb6ce6;
+    pointer-events: none;
+    animation: sparkle 0.5s ease-out;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}

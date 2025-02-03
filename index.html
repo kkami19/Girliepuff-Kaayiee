@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayii's Interactive Resume</title>
+    <link rel="icon" href="assests\icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="start.css">
+</head>
+<body onpageshow="restartMusic()">
+    <!-- Background Music -->
+    <audio id="bg-music-start" autoplay loop>
+        <source src="assests\fx\The Powerpuff girls re-animated intro.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="container">
+        <img src="assests\girliepuff kayi.png" alt="Girliepuff Kayi">
+    </div>
+    
+    <audio id="click-sound" src="assests\fx\button-click-289742.mp3"></audio>
+    
+    <div class="start_btn">
+        <a href="start.html">
+            <button onclick="playClickSound()">
+                <img src="assests\start.png" alt="Start">
+            </button>
+        </a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayii's Interactive Resume</title>
+    <link rel="icon" href="assests\icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bg-music-index" autoplay loop>
+        <source src="assests/fx/SEVENTEEN - Cheers to Youth  4hands piano cover.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="top-btns">
+        <!-- Music Button -->
+        <div class="btn-container">
+            <button id="music-btn" onclick="toggleMusic()">
+                <img id="music-icon" src="assests\musicon.png" alt="Music">
+            </button>
+            <span class="tooltip">Music</span>
+        </div>
+
+        <!-- About Resume Button -->
+        <div class="btn-container">
+            <button id="abtres" onclick="openPopup()">
+                <img src="assests\about.png" alt="About Resume">
+            </button>
+            <span class="tooltip">About</span>
+        </div>
+
+        <!-- Popup Background (Darkened Background) -->
+        <div id="popup-bg" class="popup-bg" onclick="closePopup()">
+            <!-- Popup Form -->
+            <div class="popup" onclick="event.stopPropagation()">
+                <div id="ati-grp">
+                    <div id="ATI">
+                        <h2>About the Interactive</h2>
+                    </div>
+                    <div>
+                        <span class="close-btn" onclick="closePopup()">&#10006;</span>
+                    </div>
+                </div>
+                <div class="ATI-contents">
+                    <img src="assests\instruction.png" alt="Instruction">
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Button -->
+        <div class="btn-container">
+            <button id="email" onclick="openContactPopup()">
+                <img src="assests/mail.png" alt="Email">
+            </button>
+            <span class="tooltip">Email</span>
+        </div>
+
+        <!-- Get in Touch Popup Background -->
+        <div class="popup-bg-email" id="contact-popup-bg">
+            <div class="popup-email">
+                <button class="close-btn-email" id="close-btn-email" onclick="closeContactPopup()">&#10005;</button>
+                <div id="email-title">
+                    <h2>Get in Touch</h2>
+                </div>
+                
+                <!-- Contact Form -->
+                <form id="contact-form">
+                    <label for="name">Your Name:</label><br>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name"><br><br>
+                    
+                    <label for="email">Your Email:</label><br>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+                    
+                    <label for="message">Your Message:</label><br>
+                    <textarea id="message" name="message" required placeholder="Write your message here..." rows="4" cols="50"></textarea><br><br>
+                    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content-resume">
+        <div class="upper-content">
+            <div class="top">
+                <button id="about-me">
+                    <img src="assests\content-btn.png" alt="About Me">
+                </button>
+                <span class="tooltip-top">About Me</span>
+            </div>
+            <!-- Popup Background (Darkened Background) -->
+            <div id="popup-bg-abtme" class="abtme-popup-bg" onclick="closePopup()">
+                <!-- Popup Form -->
+                <div class="popup-about-me" onclick="event.stopPropagation()">
+                    <div id="abt-me">
+                        <div id="ABT">
+                            <h2>About Me</h2>
+                        </div>
+                        <div>
+                            <span class="close-btn" onclick="closePopup()">&#10006;</span>
+                        </div>
+                    </div>
+                    <div class="ABT-contents">
+                        <img src="assests\about me.png" alt="About Me">
+                    </div>
+                </div>
+            </div>
+            <div class="top">
+                <button id="hobbies">
+                    <img src="assests\content-btn.png" alt="Hobbies">
+                </button>
+                <span class="tooltip-top">My Hobbies</span>
+            </div>
+            <!-- Popup Background (Darkened Background) -->
+            <div id="popup-bg-hobs" class="hobs-popup-bg" onclick="closePopup()">
+                <!-- Popup Form -->
+                <div class="popup-hobbies" onclick="event.stopPropagation()">
+                    <div id="hobs">
+                        <div id="HOBS">
+                            <h2>Hobbies</h2>
+                        </div>
+                        <div>
+                            <span class="close-btn" onclick="closePopup()">&#10006;</span>
+                        </div>
+                    </div>
+                    <div class="HOBS-contents">
+                        <img src="assests\hobbies.png" alt="Hobbies">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lower-content">
+            <div class="skl">
+                <button id="skills">
+                    <img src="assests\content-btn.png" alt="Skills">
+                </button>
+                <span class="tooltip-bot">My Skills</span>
+            </div>
+            <!-- Popup Background (Darkened Background) -->
+            <div id="popup-bg-skills" class="skills-popup-bg" onclick="closePopup()">
+                <!-- Popup Form -->
+                <div class="popup-skl" onclick="event.stopPropagation()">
+                    <div id="skill">
+                        <div id="SKL">
+                            <h2>Skills</h2>
+                        </div>
+                        <div>
+                            <span class="close-btn" onclick="closePopup()">&#10006;</span>
+                        </div>
+                    </div>
+                    <div class="SKL-contents">
+                        <img src="assests\skills.png" alt="Skills">
+                    </div>
+                </div>
+            </div>
+            <div class="skl">
+                <button id="expsem">
+                    <img src="assests\content-btn.png" alt="Experience">
+                </button>
+                <span class="tooltip-bot">Experience</span>
+            </div>
+            <!-- Popup Background (Darkened Background) -->
+            <div id="popup-bg-exp" class="exp-popup-bg" onclick="closePopup()">
+                <!-- Popup Form -->
+                <div class="popup-exp" onclick="event.stopPropagation()">
+                    <div id="exp">
+                        <div id="EXP">
+                            <h2>Experience and Seminars</h2>
+                        </div>
+                        <div>
+                            <span class="close-btn" onclick="closePopup()">&#10006;</span>
+                        </div>
+                    </div>
+                    <div class="EXP-contents">
+                        <img src="assests\experience.png" alt="Experience">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="character">
+            <div class="KAYI">
+                <button id="khay">
+                    <img id="khay-img" src="assests/normal.png" alt="Khayiiie">
+                </button>
+                    <span class="tooltip-khay">Hello! I’m Khaylee Vecina. Nice to meet you!</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
